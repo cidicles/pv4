@@ -1,0 +1,47 @@
+{
+  "name": "cra-graph",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apollo-boost": "^0.1.27",
+    "cidi-mouse-move": "^1.0.2",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
+    "lodash": "^4.17.11",
+    "paper": "^0.12.0",
+    "pixi": "^0.3.1",
+    "pixi-filters": "^2.6.1",
+    "pixi-particles": "^3.1.0",
+    "pixi.js": "^4.8.3",
+    "react": "^16.7.0",
+    "react-apollo": "^2.4.0",
+    "react-dom": "^16.7.0",
+    "react-pose": "^4.0.4",
+    "react-pose-text": "^3.1.0",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "react-tooltip": "^3.9.0",
+    "react-webcam": "^1.0.4",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "node-sass": "^4.10.0"
+  }
+}

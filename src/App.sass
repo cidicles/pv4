@@ -1,0 +1,346 @@
+@import 'vars'
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|PT+Sans+Narrow');
+
+@font-face
+  font-family: 'leixo'
+  src: url('./Fonts/leixo-demo-webfont.woff2') format('woff2'), url('./Fonts/leixo-demo-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'dissolve'
+  src: url('./Fonts/disolve_regular-webfont.woff2') format('woff2'), url('./Fonts/disolve_regular-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+*
+  box-sizing: border-box
+
+html, body, .site-container
+  margin: 0
+  padding: 0
+  font-family: $bodyFont
+  overflow-x: hidden
+  background: #000
+
+h1, h2, h3, h4, h5
+  font-family: $decoFont
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6)
+  margin: 0
+  padding: 0
+  color: $color-contrast-a
+
+h1
+  font-family: $decoFontAlt
+  font-size: calc(12px + 4vw)
+  position: relative
+  z-index: 1
+
+h2
+  font-size: calc(12px + 10vw)
+  position: absolute
+  z-index: 0
+
+a
+  text-decoration: none
+
+p
+  font-size: 1.1rem
+  font-family: $bodyFontAlt
+  color: $color-contrast-a
+
+// Panels
+
+.panel
+  height: 100vh
+  max-height: 100%
+  width: 100%
+  max-width: 100%
+  position: relative
+  z-index: 2
+  display: flex
+
+.panel--center-all
+  justify-content: center
+  align-items: center
+  text-align: center
+
+// Panel Sizes
+.panel--70
+  width: 70vw
+  max-width: 1200px
+  margin: 0 auto
+  @media only screen and (max-width: $break-sm)
+    width: 100vw
+    padding: 1rem
+
+
+// Panel Offset
+
+.panel__offset
+  display: grid
+  grid-template-columns: 50% 50%
+  justify-content: left
+  align-items: center
+  text-align: left
+  @media only screen and (max-width: $break-sm)
+    display: flex
+    flex-direction: column-reverse
+    justify-content: center
+    align-items: center
+    text-align: center
+
+.no-reverse
+  @media only screen and (max-width: $break-sm)
+    flex-direction: column
+    .panel__offset--highlight
+      &.left
+        margin-bottom: 1rem
+
+.panel__offset--column
+  padding-right: 2rem
+  font-size: 1.3rem
+  p
+    background: rgba($color-contrast-b, 0.99)
+    border-top: 2px solid $color-contrast-a
+    padding: 2rem
+  @media only screen and (max-width: $break-sm)
+    padding: 0
+    p
+      padding: 1rem
+
+.panel__offset--headline
+  position: relative
+  z-index: 1
+  width: 100vw
+  padding: 0
+  margin: 0 1rem
+  font-size: calc(16px + 4vw)
+  @media only screen and (max-width: $break-sm)
+    margin: 0
+
+.panel__offset--highlight
+  height: 20vw
+  overflow: hidden
+  position: relative
+  z-index: 0
+  margin: -4rem 0 0 0
+  img
+    height: 100%
+    height: 100%
+  &.left
+    margin: 0 2rem 0 -2rem
+  @media only screen and (max-width: $break-sm)
+    margin: 0 0 1rem 0
+    height: auto
+
+.panel__copy 
+  width: 70vw
+  margin: 0 auto 2rem auto
+
+// Panel Grid
+
+.grid
+  position: relative
+  z-index: 1
+  display: grid
+  padding: 0.5rem
+
+.grid--4-col-even
+  grid-template-columns: 25% 25% 25% 25%
+  @media only screen and (max-width: $break-sm)
+    grid-template-columns: 100%
+
+.grid--3-col-even
+  grid-template-columns: 33.3333333333% 33.3333333333% 33.3333333333%
+
+.grid--2-col-golden
+  grid-template-columns: 30% 70%
+  @media only screen and (max-width: $break-sm)
+    grid-template-columns: 100%
+
+.grid__item
+  position: relative
+  text-align: center
+  padding: 1rem
+  margin: 0.5rem
+  overflow: hidden
+  transition: transform 0.4s, border 0.4s
+  border: 0.5rem solid transparent
+  img
+    width: auto
+    max-width: 100%
+  h4
+    background: $color-contrast-b
+    position: absolute
+    bottom: 0
+    left: 0
+    padding: 0.5rem 2rem 0.5rem 1rem
+    color: $color-contrast-a
+    border-radius: 0 30px 0 0
+    font-family: $bodyFont
+    transform: translateY(100%)
+    transition: transform 0.2s
+  &:hover
+    transform: scale(1.1)
+    border: 0.5rem solid $color-contrast-b
+    z-index: 3
+    h4
+      transform: translateY(0)
+
+// Utils
+
+.img-respond
+  width: auto
+  max-width: 100%
+  border-top: 5px solid transparentize(#000, 0.5)
+  border-bottom: 5px solid transparentize(#000, 0.5)
+  border-radius: 1rem
+
+.text-right
+  text-align: right
+
+.text-center
+  text-align: center
+
+.content-z
+  position: relative
+  z-index: 1
+
+// Buttons
+
+.cta
+  position: relative
+  background: $color-secondary
+  color: $color-contrast-a
+  padding: 1rem
+  text-align: center
+  border-right: 3px solid $color-secondary
+  border-left: 3px solid $color-secondary
+  transition: background 0.6s, border 0.6s
+  &:before
+    position: absolute
+    top: 0
+    left: -100vw
+    background: $color-secondary
+    content: ' '
+    width: 100vw
+    height: 100%
+    transition: background 0.6s
+  &.left
+    &:before
+      left: auto
+      right: -100vw
+  &:hover
+    border-right: 3px solid $color-tertiary
+    border-left: 3px solid $color-tertiary
+    background: $color-tertiary
+    &:before
+      background: $color-tertiary
+  @media only screen and (max-width: $break-sm)
+    display: inline-block
+    padding: 1rem 2rem
+    &:before
+      display: none
+
+
+.cta-tri-bottom
+  position: absolute
+  font-family: $bodyFont
+  background: $color-tertiary
+  bottom: 0
+  text-align: center
+  clip-path: polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 50%)
+  a
+    color: $color-contrast-a
+    text-decoration: none
+    text-transform: uppercase
+    display: block
+    padding: 2rem 1rem 1rem 1rem
+    transition: background 0.6s
+    &:hover
+      background: $color-secondary
+
+.cta-block
+  display: inline-block
+  margin: 0 0 1rem 0
+  background: $color-secondary
+  padding: 0.5rem 1rem
+  text-decoration: none
+  transition: background 0.3s, color 0.3s
+  text-align: center
+  font-size: 1.3rem
+  color: $color-contrast-a
+  a
+    color: $color-contrast-a
+  &:hover
+    background: $color-tertiary
+    color: $color-contrast-a
+
+// Caro
+
+.caro
+  display: flex
+  
+.caro__item
+  margin: 0 1rem
+  padding: 0.25rem
+  color: $color-contrast-a
+  position: relative
+
+.caro__colorblock
+  padding: 0
+  margin: 0
+  img
+    opacity: 0.2
+
+.caro__h
+  margin: 0
+  text-transform: uppercase
+  font-family: 'dissolve'
+  font-size: 2rem
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5)
+  width: 80%
+  text-align: center auto
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  position: absolute
+  z-index: 2
+
+// Animations
+
+.anim-border-shift
+  border-top: 3px solid rgba(#000, 0.3)
+  border-right: 3px solid rgba(#000, 0.3)
+  border-bottom: 3px solid rgba(#000, 0.3)
+  border-left: 3px solid rgba(#000, 0.3)
+  transition: border-top 0.25s, border-right 0.25s 0.25s, border-bottom 0.25s 0.50s, border-left 0.25s 0.75s
+  &:hover
+    border-top-color: rgba($color-primary, 1)
+    border-right-color: rgba(#000, 1)
+    border-bottom-color: rgba(#000, 1)
+    border-left-color: rgba(#000, 1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
